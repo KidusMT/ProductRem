@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import com.example.kidusmt.movieapp.R;
 import com.example.kidusmt.movieapp.base.view.BaseFragment;
 import com.example.kidusmt.movieapp.ui.home.HomeActivity;
+import com.gmail.kidusmamuye.productrem.base.view.BaseFragment;
+import com.gmail.kidusmamuye.productrem.ui.home.HomeActivity;
 import com.squareup.picasso.Picasso;
 
 /**

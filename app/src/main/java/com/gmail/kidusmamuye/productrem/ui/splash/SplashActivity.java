@@ -16,6 +16,8 @@ import com.example.kidusmt.movieapp.data.remote.genre.GenreResponse;
 import com.example.kidusmt.movieapp.ui.login.LoginActivity;
 import com.example.kidusmt.movieapp.util.Constants;
 import com.facebook.FacebookSdk;
+import com.gmail.kidusmamuye.productrem.base.view.BaseActivity;
+import com.gmail.kidusmamuye.productrem.ui.login.LoginActivity;
 
 import java.util.HashMap;
 import java.util.List;
@@ -36,8 +38,6 @@ public class SplashActivity extends BaseActivity {
     public SharedPreferences.Editor editor;
 
     public static HashMap<Integer,String> genreIds = new HashMap();
-
-    Call<GenreResponse> callGenreRated;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,35 +85,6 @@ public class SplashActivity extends BaseActivity {
 
     }
 
-    public void getGenres(){
-        //This retrofit callBack is for fetching genreLists
-        callGenreRated = GenreRemote.genreService.getGenreList(Constants.API_KEY);
-
-        callGenreRated.enqueue(new Callback<GenreResponse>() {
-            @Override
-            public void onResponse(Call<GenreResponse> call, Response<GenreResponse> response) {
-                List<Genre> genreList = response.body().getGenres();
-
-                for(Genre genre: genreList){
-                    genreIds.put(genre.getId(),genre.getName());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<GenreResponse> call, Throwable t) {
-                //TODO find a way to tell users that it does not have a genre name yet
-            }
-        });
-    }
-
-    public static String getGenre(List<Integer> genres){
-        String genre_string = "";
-        for(int x: genres){
-            genre_string += genreIds.get(x)+", ";
-        }
-
-        return genre_string;
-    }
 
     public void skipSplashScreen(View v){
         openTourActivity();

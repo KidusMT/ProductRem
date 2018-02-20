@@ -8,9 +8,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
-import com.example.kidusmt.movieapp.R;
-import com.example.kidusmt.movieapp.base.view.BaseActivity;
-import com.example.kidusmt.movieapp.ui.login.LoginActivity;
+import com.gmail.kidusmamuye.productrem.R;
+import com.gmail.kidusmamuye.productrem.base.view.BaseActivity;
+import com.gmail.kidusmamuye.productrem.ui.login.LoginActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ public class HomeActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
 
         viewPager = findViewById(R.id.viewpager);
         setupViewPager(viewPager);
@@ -38,13 +38,10 @@ public class HomeActivity extends BaseActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        MoviesFragment[] movieTabs = {new MoviesFragment(), new MoviesFragment(), new MoviesFragment(),
-                new MoviesFragment()};
-        String[] tabTitles = {"Popular", "Top", "Upcoming", "InTheater"};
+        //TODO: STRINGS HAVE TO BE CHANGED FROM THE RESOURCE VALUE FOLDER - STRING
+        adapter.addFragment(new FragmentTab(), getResources().getString(R.string.home_tab_0_label));
+        adapter.addFragment(new FragmentTab(), getResources().getString(R.string.home_tab_1_label));
 
-        for(String s : tabTitles){
-            adapter.addFragment(movieTabs[s.indexOf(s)], s);
-        }
         viewPager.setAdapter(adapter);
     }
 

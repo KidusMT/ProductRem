@@ -1,45 +1,27 @@
 package com.gmail.kidusmamuye.productrem.ui.home;
 
-import com.example.kidusmt.movieapp.base.mvp.BasePresenter;
-import com.example.kidusmt.movieapp.base.mvp.BaseView;
-import com.example.kidusmt.movieapp.data.local.movie.Movie;
-
-import java.util.List;
+import com.gmail.kidusmamuye.productrem.base.mvp.BasePresenter;
+import com.gmail.kidusmamuye.productrem.base.mvp.BaseView;
 
 /**
- * Created by KidusMT on 1/4/2018.
+ * Created by KidusMT on 2/20/2018.
  */
 
 public interface HomeContract {
 
-    interface View extends BaseView<Presenter> {
-
-        //show movie card on the recyclerView
-        void showMovies(List<Movie> movieList);
-
-        void showProgress();
-        void hideProgress();
-
-        //what is going on here? why String? as a return object
-        String getCategory();
-
-        //open the detail activity for the specific movie card clicked
-        void openMovieDetail(int position);
-
-        //refreshes the cards on the recyclerView
-         void refresh();
+    interface Presenter extends BasePresenter<View>{
+        void showContent();//List<Content> content
+        void onBackPressed();
+        void onContentClicked(int position);
+        void onTabClicked();//confusing
+        void pullToRefersh();
     }
 
-    interface Presenter extends BasePresenter<View>{
-
-        //perform the action of loading the movies for the recyclerView
-        //perform the action of a click on the card
-        void onMovieClicked(int position);
-
-        //performs the refresh for the page reloading
-        void onSwippedDownToRefresh();
-
-        //retrieve movie from the movie db
-        void loadMovies();
+    interface View extends BaseView<Presenter>{
+        void loadContent();//List<Content> content
+        void close();
+        void OpenContentDetail(int position);
+        void changeTab();
+        void Refresh();
     }
 }

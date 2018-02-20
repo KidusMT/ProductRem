@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.kidusmt.movieapp.R;
-import com.example.kidusmt.movieapp.base.view.BaseActivity;
+import com.gmail.kidusmamuye.productrem.base.view.BaseActivity;
+import com.gmail.kidusmamuye.productrem.R;
 
 /**
  * Tour activity for showing the person what the app is about

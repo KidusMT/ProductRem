@@ -9,6 +9,8 @@ import com.example.kidusmt.movieapp.R;
 import com.example.kidusmt.movieapp.base.view.BaseActivity;
 import com.example.kidusmt.movieapp.ui.home.HomeActivity;
 import com.facebook.login.widget.LoginButton;
+import com.gmail.kidusmamuye.productrem.base.view.BaseActivity;
+import com.gmail.kidusmamuye.productrem.ui.home.HomeActivity;
 
 /**
  * Created by KidusMT on 1/3/2018.
@@ -22,7 +24,7 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        Facebook
+//        Facebook
         setContentView(R.layout.activity_login);
 
         //HIDING SOFT INPUT KEYBOARD
